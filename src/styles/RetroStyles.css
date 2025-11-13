@@ -1,0 +1,175 @@
+/* RetroStyles.css: Estils globals per a tota la Pokédex d'estil Game Boy */
+
+/* 1) Font pixel: Press Start 2P */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* 2) Paleta de colors Game Boy (verd monocromàtic) */
+:root {
+  /* Paleta Game Boy original */
+  --gb-bg:     #9BBC0F;  /* Verd molt clar: fons general */
+  --gb-border: #0F380F;  /* Verd fosc: contorns i text */
+  --gb-screen: #8BAC0F;  /* Verd clar: pantalla */
+  --gb-button: #306230;  /* Verd mitjà: botons */
+  --gb-button-text: #0F380F; /* Verd fosc: text de botons */
+}
+
+body.dark {
+  /* Mode fosc: inverteix lleugerament la paleta */
+  --gb-bg:     #0F380F;  /* Verd fosc: fons */
+  --gb-border: #9BBC0F;  /* Verd molt clar: contorns i text */
+  --gb-screen: #306230;  /* Verd mitjà: pantalla */
+  --gb-button: #8BAC0F;  /* Verd clar: botons */
+  --gb-button-text: #9BBC0F; /* Verd molt clar: text de botons */
+}
+
+/* 3) Contenidor principal: pantalla retro */
+.gameboy-screen,
+.retro-app-container {
+  background-color: var(--gb-bg);
+  color: var(--gb-border);
+  font-family: 'Press Start 2P', monospace;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  image-rendering: pixelated; /* Efecte pixel·lat */
+  font-size: 0.6rem;
+}
+
+/* 4) Navbar retro */
+.retro-navbar {
+  background-color: var(--gb-screen);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--gb-border);
+  flex-shrink: 0;
+}
+.retro-nav-links {
+  display: flex;
+  gap: 1rem;
+}
+.retro-nav-item {
+  color: var(--gb-border);
+  text-decoration: none;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid var(--gb-border);
+  border-radius: 2px;
+  background-color: var(--gb-bg);
+}
+.retro-nav-item:hover,
+.retro-nav-item:focus,
+.retro-nav-item.active {
+  background-color: var(--gb-screen);
+  border-color: var(--gb-screen);
+  color: var(--gb-bg);
+}
+
+/* Botó de toggle de tema */
+.retro-nav-theme-toggle button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  background-color: var(--gb-button);
+  color: var(--gb-button-text);
+  border: 2px solid var(--gb-border);
+  border-radius: 2px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+.retro-nav-theme-toggle button:hover {
+  background-color: var(--gb-screen);
+}
+
+/* 5) Contingut principal dins de la pantalla */
+.retro-app-content {
+  flex-grow: 1;
+  background-color: var(--gb-screen);
+   padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Scrollbar dins el contingut (només WebKit) */
+.retro-app-content::-webkit-scrollbar {
+  width: 12px;
+}
+.retro-app-content::-webkit-scrollbar-track {
+  background: #8BAC0F;
+}
+.retro-app-content::-webkit-scrollbar-thumb {
+  background: var(--gb-border);
+  border: 2px solid #306230;
+}
+
+/* 6) Títols i textos generals */
+h1, h2, h3, h4 {
+  margin: 0.7rem 0;
+  color: var(--gb-border);
+}
+
+/* 7) Botons genèrics retro */
+button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  background-color: var(--gb-button);
+  color: white;
+  border: 4px solid var(--gb-border);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 10px
+}
+button:hover {
+  background-color: var(--gb-screen);
+}
+
+/* 8) Enllaços retro */
+a {
+  text-decoration: none;
+  color: var(--gb-border);
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* 9) Footer retro */
+.retro-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--gb-screen);
+  border-top: 2px solid var(--gb-border);
+  flex-shrink: 0;
+}
+
+/* 10) Espais de pàgina genèrics */
+.page-container,
+.type-filter-page,
+.about-page,
+.not-found-page,
+.landing-container {
+  padding: 1rem;
+}
+
+/* 11) Mides de text per a landing */
+.landing-content h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.landing-content p {
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+.start-button {
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+
+/* 12) Ajustos finals (si hi ha res més específic) */
+/* ... */

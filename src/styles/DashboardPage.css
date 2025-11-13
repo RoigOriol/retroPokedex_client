@@ -1,0 +1,87 @@
+/* DashboardPage.css: Landing inicial */
+
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: var(--gb-screen);
+  border: 4px solid var(--gb-border);
+  border-radius: 4px;
+}
+
+.landing-content {
+  text-align: center;
+  border-radius: 4px;
+  padding: 1rem;
+  max-width: 90%;
+}
+
+.landing-content h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--gb-border);
+}
+.landing-content p {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--gb-border);
+}
+.start-button {
+  background-color: var(--gb-button);
+  color: var(--gb-button-text);
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: 4px solid var(--gb-border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.start-button:hover {
+  background-color: var(--gb-screen);
+}
+/* Spinner Pokémon */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+}
+
+.pokemon-spinner {
+  width: 600px; /* O el tamany que vulguis */
+  animation: spin-scale 2s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+  /* Si vols que es repeteixi: infinite; */
+}
+
+@keyframes spin-scale {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+    opacity: 0.1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2) rotate(720deg);
+    opacity: 1;
+  }
+}
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Canvia 100% per 100vh */
+  background-color: var(--gb-screen);
+}
+/* Efecte pampallugues retro */
+.retro-blink {
+  animation: retro-blink 1s steps(2, start) infinite;
+  /* steps(2, start) fa un blink 100% on/off, com el <blink> antic */
+  box-shadow: 0 0 8px 2px #fff, 0 0 2px 1px #00ff00;
+  /* Opcional: afegeix glow verd per donar feeling Game Boy */
+}
+
+@keyframes retro-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}

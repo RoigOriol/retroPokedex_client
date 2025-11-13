@@ -1,0 +1,22 @@
+/* NotFoundPage.css */
+
+.not-found-page {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--gb-bg);
+  border: 4px solid var(--gb-border);
+  border-radius: 4px;
+  max-width: 400px;
+  margin: 2rem auto;
+  box-sizing: border-box;
+}
+
+.not-found-page h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--gb-border);
+}
+.not-found-page p {
+  font-size: 0.75rem;
+  color: var(--gb-border);
+}

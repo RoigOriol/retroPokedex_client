@@ -1,0 +1,44 @@
+
+.pokemon-card {
+  background-color: var(--gb-bg);       /* Verd clar de fons */
+  border-radius: 4px;                    /* Cantonades quadrades suau */
+  padding: 0.5rem;
+  text-align: center;
+  box-sizing: border-box;
+ 
+}
+
+.pokemon-card h4 {
+  font-size: 0.75rem;
+  color: var(--gb-border);
+  margin: 0.25rem 0;
+}
+
+
+.pokemon-card img {
+  width: 80px;
+  height: 80px;
+ 
+  margin: 0.5rem 0;
+}
+
+/* Botó “Detall” dins de la targeta Pokémon */
+.pokemon-card .button {
+  font-size: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--gb-button);
+  color: white;
+  border: 4px solid var(--gb-border);
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.pokemon-card .button:hover {
+  background-color: var(--gb-screen);
+}
+
+.pokemons-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}

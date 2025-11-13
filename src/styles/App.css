@@ -1,0 +1,51 @@
+/* App.css: Corregim per integrar l’estètica retro en tota l’app */
+
+/* 1) Importem la font pixel en cas que no ho faci RetroStyles */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* 2) Reset mínim i fons de body per a centrar la “pantalla” */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #202020; /* Fons fosc exterior, per fer contrast amb la pantalla Game Boy */
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 3) Contenidor principal que hem de tenir en App.jsx */
+/* <div class="retro-app-container gameboy-screen"> */
+.retro-app-container {
+  /* Ja està definit a RetroStyles, però si vols sobreescriure: */
+  /* Per exemple, no ocupar tota la pantalla si prefereixes marges a fora */
+  width: 90vw;
+  max-width: 1400
+px;
+  height: 60vh;
+  max-height: 500px;
+  margin: 20px auto;
+  border: 4px solid var(--gb-border);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex: wrap;
+  overflow: hidden;
+}
+
+/* 4) Dins d’aquest contenidor, es mostren Navbar i contingut */
+.retro-app-content {
+  /* Definits a RetroStyles */
+  /* Repeteixo només per si cal ajustar: */
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* 5) Footer de l’app global */
+.search-bar {
+  margin: 20px 20px 20px 0px;
+}
+
+/* Si existien altres estils a App.css que facin referència a .gameboy-body, .gameboy-case, etc., elimina’ls. */
+
