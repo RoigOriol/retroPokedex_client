@@ -1,89 +1,78 @@
-# React + Vite
+# Retro Pokédex – Client (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web tipo Pokédex con estética retro, construida con **React + Vite**.  
+Permite explorar Pokémon, buscar por nombre, filtrar por tipo, marcar favoritos, ver estadísticas básicas y añadir comentarios asociados a cada Pokémon.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Funcionalidades principales
 
-# PokemonWapi
+- **Landing retro** con acceso rápido a la Pokédex.
+- **Listado de Pokémon**:
+  - Paginación (20 por página).
+  - **Buscador por nombre**.
+  - **Filtro por tipo** (con página específica de tipos).
+- **Ficha detallada de cada Pokémon**:
+  - Imagen y datos básicos.
+  - **Stats** visualizados con barras horizontales.
+  - Botón de **favorito** (corazón) gestionado por contexto global.
+  - Sección de **comentarios** conectada al backend (`/chats`).
+- **Gestión de favoritos**:
+  - Añadir/quitar Pokémon favoritos desde la ficha.
+  - Estado global mediante `FavoritesContext`.
+- **Modo claro/oscuro**:
+  - Interruptor con iconos de sol y luna.
+  - Gestión del tema a través de `ThemeContext` y clases en `<body>`.
+- **Manejo de rutas con React Router**:
+  - `/` – Landing (Dashboard).
+  - `/pokemons` – Listado de Pokémon.
+  - `/pokemon/:pokemonCharacterId` – Detalle de Pokémon.
+  - `/types` – Página de filtro por tipos.
+  - `/about` – Página About.
+  - `*` – Página 404.
 
+---
 
+## 🧱 Tecnologías utilizadas
 
-## Description: Pokemon Wapi es una app donde el usuario puede encontrar todo los pokemon que existen por categorias. Dentro de cada categoria descrubriras a todos los pokemons que pertenecen a ella y verás su ficha y su info
+- **Frontend**:
+  - [React 18](https://react.dev/)
+  - [Vite](https://vitejs.dev/)
+  - [React Router DOM](https://reactrouter.com/)
+  - [Axios](https://axios-http.com/)
+  - [Bootstrap 5](https://getbootstrap.com/) (para estilos base y layout)
+- **Estado & contexto**:
+  - `FavoritesContext` para favoritos.
+  - `ThemeContext` para modo claro/oscuro.
+- **API Pokémon**:
+  - [PokeAPI](https://pokeapi.co/) (a través de `VITE_BACKEND_URL`).
 
+---
 
-## Technologies, Libraries & APIs used
+## 🌐 Arquitectura de datos
 
-**NOTE -** 
-## Backlog Functionalities
+La app consume datos de dos orígenes:
 
+1. **PokeAPI** (Pokémon, tipos, etc.)
+   - Base URL configurada en `VITE_BACKEND_URL`.
+   - Implementado en `src/services/pokeapi.js`:
+     - `GET /pokemon?limit=&offset=`
+     - `GET /pokemon/:name`
+     - `GET /type`
 
--HTML
--CSS
--Javascript
--React
--React-router-dom
--Node
--Json-server
+2. **Backend propio de comentarios** (JSON Server)
+   - Base URL configurada en `VITE_SERVER_URL`.
+   - Usado en los componentes de comentarios:
+     - `POST /chats` para crear comentarios.
+     - `GET /chats?pokemonId=...` para listar comentarios de un Pokémon.
+     - `DELETE /chats/:id` para eliminar un comentario.
 
-**NOTE -** Implementar la edicion de comentarios
+---
 
-# Client Structure
+## ⚙️ Variables de entorno
 
-## User Stories
+Crear un archivo `.env.local` en la raíz del proyecto (ya existe en este repo, pero a modo de referencia):
 
-**NOTE -**  List here all the actions a user can do in the app. Example:
-
-- **404** - Como usuario puedo ver una página que indica que no existe.
-- **homepage** - Como usuario veo la portada de la página y puedo entrar al contenido a traves de un boton. 
-- **pagina de Tipos de Pokemon** - Como usuario tengo acceso a todos los tipos de pokemon mostrados bajo su nombre y escudo y tambien puedo volver atrás a traves del boton de volver.
-- **lista de Pokemons** - Como usuario puedo ver la lista de pokemons y acceder a cada uno y tambien puedo volver atrás a traves del boton de volver.
-- **ficha de Pokemon** - Como usuario tengo acceso a las características del pokemon seleccionado, su imagen, puedo añadir y borrar comentarios y tambien puedo volver atrás a través del boton de volver.
-- **about page** - Como usuario puedo ver informacion sobre los desarroladores.
-
-
-## Client Routes
-
-**NOTE -** Use below table to list your frontend routes
-
-## React Router Routes (React App)
-| Path                      | Page            | Components        | Behavior                                                      |
-| ------------------------- | ----------------| ----------------  |  ------------------------------------------------------------  |
-| `/`                       | Home            |                   | Home page                                                     |
-| `/CategoriasPage`         | Lista categoria |                   | Muestra todas las categorias de pokemons 
-| `/pokemon-por-tipo/`       | Tipos pokemon   |                   | Navega a los tipos
-| `/FichaCharacterPage/`    | Tipos pokemon   | añadir/borrar     | Muestra la fiche de un pokemon                                |
-| `/AboutPage `             | Informacion     |                   | Muestra info devs                                             |
-| `*`                       | Not found       |                   | Error                                                         |
-
-
-## Other Components
-
-- FormComments
-- Footer
-  
-
-### Collaborators
-
-[Oriol](www.github-url.com)
-
-[Marcos](www.github-url.com)
-
-### Project
-
-[Repository Link Client] (https://github.com/RoigOriol/PokeWapi-client)
-
-[Repository Link Server] (https://github.com/RoigOriol)
-
-[Deploy Link](www.your-deploy-url-here.com)
-
-
-
-### Slides
-
-[Slides Link](www.your-slides-url-here.com)
-
-
-
+```bash
+VITE_BACKEND_URL="https://pokeapi.co/api/v2"
+VITE_SERVER_URL="http://localhost:5005"
